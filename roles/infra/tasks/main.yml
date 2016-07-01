@@ -7,7 +7,7 @@
   register: clc_grp
 
 - debug: var=clc_grp
-- debug: msg="Group Name is {{ clc_grp.group.name }}"
+- debug: msg="group Name is {{ clc_grp.group.name }}"
 
 - name: Create Network
   clc_network:
@@ -18,7 +18,7 @@
   register: clc_net
 
 - debug: var=clc_net
-- debug: msg="network Name is {{ clc_net.Network.name }}"
+- debug: msg="network Name is {{ clc_net.network.name }}"
 
 
 # - name: Generate password for server
