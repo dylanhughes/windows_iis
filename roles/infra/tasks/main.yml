@@ -30,7 +30,7 @@
      exact_count: 1
      count_group: Demo
      group: Demo
-     location: 'UC1'
+     location: 'GB3'
      network_id: 'Demo VLAN'
      cpu: 1
      memory: 4
