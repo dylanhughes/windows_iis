@@ -9,11 +9,6 @@
 - debug: var=clc_grp
 - debug: msg="group Name is {{ clc_grp.group.name }}"
 
-
-
-
-# - name: Generate password for server
-
 - name: create a single server
   clc_server:
     name: web
@@ -22,7 +17,7 @@
     count_group: Demo
     group: Demo
     location: "{{dc}}"
-    network_id: "{{network}}"
+    network_id: "{{network_description}}"
     cpu: 1
     memory: 4
   register: clc_svr
