@@ -1,7 +1,7 @@
 ---
 - name: create Demo Group
   clc_group:
-    location: 'GB3'
+    location: "{{dc}}"
     name: Demo
     state: present
   register: clc_grp
@@ -11,7 +11,7 @@
 
 - name: Create Network
   clc_network:
-    location: 'GB3'
+    location: "{{dc}}"
     name: 'Demo VLAN'
     description: 'Demo VLAN'
     state: present
@@ -30,7 +30,7 @@
     exact_count: 1
     count_group: Demo
     group: Demo
-    location: 'GB3'
+    location: "{{dc}}"
     network_id: 'Demo VLAN'
     cpu: 1
     memory: 4
