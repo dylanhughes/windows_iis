@@ -17,8 +17,8 @@
      state: present
    register: clc_net
 
-   - debug: var=clc_net
-   - debug: msg="network Name is {{ clc_net.Network.name }}"
+  - debug: var=clc_net
+  - debug: msg="network Name is {{ clc_net.Network.name }}"
 
 
 # - name: Generate password for server
