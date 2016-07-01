@@ -1,2 +1,2 @@
 ---
-dc: {{data_center}}
+dc: "{{ data_center }}"
