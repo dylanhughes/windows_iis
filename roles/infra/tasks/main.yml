@@ -1,42 +1,42 @@
 ---
- - name: create Demo Group
-   clc_group:
-     location: 'GB3'
-     name: Demo
-     state: present
-   register: clc_grp
+- name: create Demo Group
+  clc_group:
+    location: 'GB3'
+    name: Demo
+    state: present
+  register: clc_grp
 
- - debug: var=clc_grp
- - debug: msg="Group Name is {{ clc_grp.group.name }}"
+- debug: var=clc_grp
+- debug: msg="Group Name is {{ clc_grp.group.name }}"
 
- - name: Create Network
-   clc_network:
-     location: 'GB3'
-     name: 'Demo VLAN'
-     description: 'Demo VLAN'
-     state: present
-   register: clc_net
+- name: Create Network
+  clc_network:
+    location: 'GB3'
+    name: 'Demo VLAN'
+    description: 'Demo VLAN'
+    state: present
+  register: clc_net
 
-  - debug: var=clc_net
-  - debug: msg="network Name is {{ clc_net.Network.name }}"
+- debug: var=clc_net
+- debug: msg="network Name is {{ clc_net.Network.name }}"
 
 
 # - name: Generate password for server
 
- - name: create a single server
-   clc_server:
-     name: web
-     template: WIN2012R2DTC-64
-     exact_count: 1
-     count_group: Demo
-     group: Demo
-     location: 'GB3'
-     network_id: 'Demo VLAN'
-     cpu: 1
-     memory: 4
-   register: clc_svr
+- name: create a single server
+  clc_server:
+    name: web
+    template: WIN2012R2DTC-64
+    exact_count: 1
+    count_group: Demo
+    group: Demo
+    location: 'GB3'
+    network_id: 'Demo VLAN'
+    cpu: 1
+    memory: 4
+  register: clc_svr
 
- - debug: var=clc_svr
+- debug: var=clc_svr
 
- - name: Add the new server to the inventory
-   add_host: name={{clc_svr.servers[0].name}}  groups=windows_web_servers
+- name: Add the new server to the inventory
+  add_host: name={{clc_svr.servers[0].name}}  groups=windows_web_servers
