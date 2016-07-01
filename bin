@@ -1,0 +1,10 @@
+- name: Create Network
+  clc_network:
+    location: "{{dc}}"
+    name: 'Demo VLAN'
+    description: 'Demo VLAN'
+    state: present
+  register: clc_net
+
+- debug: var=clc_net
+- debug: msg="network Name is {{ clc_net.network.name }}"

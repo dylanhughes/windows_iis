@@ -9,16 +9,7 @@
 - debug: var=clc_grp
 - debug: msg="group Name is {{ clc_grp.group.name }}"
 
-- name: Create Network
-  clc_network:
-    location: "{{dc}}"
-    name: 'Demo VLAN'
-    description: 'Demo VLAN'
-    state: present
-  register: clc_net
 
-- debug: var=clc_net
-- debug: msg="network Name is {{ clc_net.network.name }}"
 
 
 # - name: Generate password for server
@@ -31,7 +22,7 @@
     count_group: Demo
     group: Demo
     location: "{{dc}}"
-    network_id: 'Demo VLAN'
+    network_id: "{{network}}"
     cpu: 1
     memory: 4
   register: clc_svr
